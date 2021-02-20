@@ -39,13 +39,12 @@ df.dailySteps
 \  
 \
 2. Make a histogram of the total number of steps taken each day.
-```{r histogram 2 total steps taken each day}
+```{r histogram1.png}
 gg <- ggplot(df.dailySteps, aes(no.daily.steps))
 gg + geom_histogram(color="white", binwidth=2500) +
         ggtitle("Frequency: number of steps taken per day") + 
         scale_x_continuous(breaks=seq(0, 25000, 2500)) +
         labs(x="Total steps each day", y="Frequency")
-ggsave("plot1_histogr.png")
 ```
 \
 \
@@ -63,7 +62,7 @@ summaryData
 
 \
 1.Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis).
-```{r timser series 1 interval}
+```{r timeseries1.png}
 df.interval.mean <- data %>%
         group_by(interval) %>%
         summarise(mean.steps.interval = mean(steps, na.rm=T))
@@ -71,7 +70,6 @@ gg.interval <- ggplot(df.interval.mean, aes(interval, mean.steps.interval))
 gg.interval + geom_line(color="darkgreen") +
         labs(title="Mean steps per 5-minute interval across all days", x="Time of day", y="Mean steps/interval") +
         scale_x_continuous(breaks=c(seq(0, 3000, 200)))
-ggsave("plot2_timeseries.png")
 ```
 \
 \
@@ -102,7 +100,7 @@ sum(is.na(data2$steps.noNA)) # check for NAs
 \
 \
 4. Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
-```{r histogram 2 with imputed NAs}
+```{r histogram2.png}
 sumdata2 <- data2 %>%
         group_by(date) %>% 
         summarise(daily.steps.imputed = sum(steps.noNA))
@@ -110,7 +108,6 @@ ggdata2 <- ggplot(sumdata2, aes(daily.steps.imputed))
 ggdata2 + geom_histogram(binwidth=1000,color="white") +
         ggtitle("Frequency: number of steps taken per day (w/imputed values)") + 
         labs(x="Total steps each day", y="Frequency")
-ggsave("plot3_histogr.png")
 
 comparison <- data.frame(row.id=c("With NA", "No NA"), 
                          mean=c(mean(df.dailySteps$no.daily.steps), mean(sumdata2$daily.steps.imputed)),
@@ -133,7 +130,7 @@ str(data) # check factor levels
 \
 \
 2.Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data.
-```{r time series 2 between weekday and weekend}
+```{r timeseries2.png}
 data.day <- data %>%
         group_by(day, interval) %>%
         summarise(interval.mean = mean(steps, na.rm=T))
@@ -142,5 +139,4 @@ gg.day <- ggplot(data.day, aes(interval, interval.mean))
 gg.day + geom_line(color="darkgreen") +
         facet_grid(day~.) +
         labs(y="Number of steps", x="Interval")
-ggsave("plot4_timeseries.png")
 ```

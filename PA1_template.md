@@ -108,15 +108,7 @@ gg + geom_histogram(color="white", binwidth=2500) +
         labs(x="Total steps each day", y="Frequency")
 ```
 
-![](PA1_template_files/figure-html/histogram 2 total steps taken each day-1.png)<!-- -->
-
-```r
-ggsave("plot1_histogr.png")
-```
-
-```
-## Saving 7 x 5 in image
-```
+![](PA1_template_files/figure-html/histogram1.png-1.png)<!-- -->
 \
 \
 3. Calculate and report the mean and median of the total number of steps taken per day.
@@ -166,15 +158,7 @@ gg.interval + geom_line(color="darkgreen") +
         scale_x_continuous(breaks=c(seq(0, 3000, 200)))
 ```
 
-![](PA1_template_files/figure-html/timser series 1 interval-1.png)<!-- -->
-
-```r
-ggsave("plot2_timeseries.png")
-```
-
-```
-## Saving 7 x 5 in image
-```
+![](PA1_template_files/figure-html/timeseries1.png-1.png)<!-- -->
 \
 \
 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
@@ -237,15 +221,7 @@ ggdata2 + geom_histogram(binwidth=1000,color="white") +
         labs(x="Total steps each day", y="Frequency")
 ```
 
-![](PA1_template_files/figure-html/histogram 2 with imputed NAs-1.png)<!-- -->
-
-```r
-ggsave("plot3_histogr.png")
-```
-
-```
-## Saving 7 x 5 in image
-```
+![](PA1_template_files/figure-html/histogram2.png-1.png)<!-- -->
 
 ```r
 comparison <- data.frame(row.id=c("With NA", "No NA"), 
@@ -302,12 +278,4 @@ gg.day + geom_line(color="darkgreen") +
         labs(y="Number of steps", x="Interval")
 ```
 
-![](PA1_template_files/figure-html/time series 2 between weekday and weekend-1.png)<!-- -->
-
-```r
-ggsave("plot4_timeseries.png")
-```
-
-```
-## Saving 7 x 5 in image
-```
+![](PA1_template_files/figure-html/timeseries2.png-1.png)<!-- -->
