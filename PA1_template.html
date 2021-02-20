@@ -252,7 +252,9 @@ df.dailySteps &lt;- data %&gt;%
 ##  9 2012-10-09          12811
 ## 10 2012-10-10           9900
 ## # … with 51 more rows</code></pre>
-<p>  2. Make a histogram of the total number of steps taken each day.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Make a histogram of the total number of steps taken each day.</li>
+</ol>
 <pre class="r"><code>gg &lt;- ggplot(df.dailySteps, aes(no.daily.steps))
 gg + geom_histogram(color=&quot;white&quot;, binwidth=2500) +
         ggtitle(&quot;Frequency: number of steps taken per day&quot;) + 
