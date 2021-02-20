@@ -97,7 +97,6 @@ df.dailySteps
 ## # … with 51 more rows
 ```
 \  
-\
 2. Make a histogram of the total number of steps taken each day.
 
 ```r

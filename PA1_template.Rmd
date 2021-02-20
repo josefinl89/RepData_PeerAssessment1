@@ -37,7 +37,6 @@ df.dailySteps <- data %>%
 df.dailySteps
 ````
 \  
-\
 2. Make a histogram of the total number of steps taken each day.
 ```{r histogram1.png}
 gg <- ggplot(df.dailySteps, aes(no.daily.steps))
